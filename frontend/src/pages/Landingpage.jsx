@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <div>
       {/* Gantikan dengan gambar */}
-      <img src="/images/bvyu contoh.png" alt="Bvyu Logo" style={{ width: '200px' }} />
+      <img src="/images/bvyu-blue.png" alt="Bvyu Logo" style={{ width: '200px' }} />
 
       <p>
         In the theater of the mind, every frame flickers with the potential to ignite empathy.

@@ -1,19 +1,21 @@
 // src/App.js
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom"; // Import untuk routing
-import LandingPage from "./pages/Login"; // Halaman LandingPage
-import LoginPage from "./pages/Login"; // Halaman Login
-import RegisterPage from "./pages/Register"; // Halaman Register
-import UsersPage from "./pages/Userspage"; // Halaman Users/Profile
+import { Routes, Route, Navigate } from "react-router-dom";
+import LandingPage from "./pages/Landingpage";
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Register";
+import UsersPage from "./pages/Userspage";
 
 const App = () => (
-  <Routes>
-    <Route path="/" element={<LandingPage />} /> {/* Halaman utama */}
-    <Route path="/login" element={<LoginPage />} /> {/* Halaman login */}
-    <Route path="/register" element={<RegisterPage />} /> {/* Halaman register */}
-    <Route path="/users" element={<UsersPage />} /> {/* Halaman pengguna */}
-    <Route path="*" element={<Navigate to="/" replace />} /> {/* Fallback jika tidak ditemukan */}
-  </Routes>
+  <div className="app-container">
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/users" element={<UsersPage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  </div>
 );
 
 export default App;
