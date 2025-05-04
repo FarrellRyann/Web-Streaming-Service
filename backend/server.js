@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-// const bcrypt = require('bcrypt'); // (optional) kalau nanti mau pakai hash
+// const bcrypt = require('bcrypt'); // Uncomment jika mau pakai hashing
 
 const app = express();
 app.use(cors());
@@ -12,56 +12,83 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '', // ganti jika ada password
+  password: '', // ganti jika ada
   database: 'blockvyu'
 });
 
 db.connect(err => {
-  if (err) throw err;
+  if (err) {
+    console.error('MySQL Connection Error:', err);
+    process.exit(1);
+  }
   console.log('MySQL Connected...');
 });
 
-// Register
+// =====================
+//      REGISTER
+// =====================
 app.post('/register', (req, res) => {
   const { username, email, password } = req.body;
-  console.log('Register attempt:', username, email, password); // Debug
 
-  const sql = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
-  
-  // Optional kalau pakai bcrypt:
-  // const hashedPassword = await bcrypt.hash(password, 10);
-  // db.query(sql, [username, email, hashedPassword], ...
+  if (!username || !email || !password) {
+    return res.status(400).json({ message: 'All fields are required.' });
+  }
 
-  db.query(sql, [username, email, password], (err, result) => {
-    if (err) {
-      console.error('Registration error:', err);
-      return res.status(500).send('Registration failed.');
+  const checkEmail = 'SELECT * FROM users WHERE email = ?';
+  db.query(checkEmail, [email], (err, results) => {
+    if (err) return res.status(500).json({ message: 'Error checking email' });
+
+    if (results.length > 0) {
+      return res.status(409).json({ message: 'Email already registered.' });
     }
-    res.status(200).send('User registered successfully!');
+
+    const sql = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
+    db.query(sql, [username, email, password], (err, result) => {
+      if (err) {
+        console.error('Insert Error:', err);
+        return res.status(500).json({ message: 'Registration failed.' });
+      }
+      res.status(201).json({ message: 'User registered successfully.' });
+    });
   });
 });
 
-// Login
+// =====================
+//        LOGIN
+// =====================
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
-  console.log('Login attempt:', email, password); // Debug
+
+  if (!email || !password) {
+    return res.status(400).json({ message: 'Email and password are required.' });
+  }
 
   const sql = 'SELECT * FROM users WHERE email = ? AND password = ?';
   db.query(sql, [email, password], (err, results) => {
     if (err) {
-      console.error('Login error:', err);
-      return res.status(500).send('Login failed.');
+      console.error('Login Error:', err);
+      return res.status(500).json({ message: 'Login failed.' });
     }
+
     if (results.length > 0) {
-      console.log('Login success:', results[0]); // Debug
-      res.status(200).json({ message: 'Login successful', user: results[0] });
+      const user = results[0];
+      return res.status(200).json({
+        message: 'Login successful.',
+        user: {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+        }
+      });
     } else {
-      console.log('Login failed: invalid credentials');
-      res.status(401).send('Invalid credentials');
+      return res.status(401).json({ message: 'Invalid email or password.' });
     }
   });
 });
 
+// =====================
+//       START
+// =====================
 app.listen(5000, () => {
-  console.log('Server running on port 5000');
+  console.log('Server running on http://localhost:5000');
 });
