@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom"; // Import untuk routing
+import LandingPage from "./pages/Login"; // Halaman LandingPage
+import LoginPage from "./pages/Login"; // Halaman Login
+import RegisterPage from "./pages/Register"; // Halaman Register
+import UsersPage from "./pages/Userspage"; // Halaman Users/Profile
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Routes>
+    <Route path="/" element={<LandingPage />} /> {/* Halaman utama */}
+    <Route path="/login" element={<LoginPage />} /> {/* Halaman login */}
+    <Route path="/register" element={<RegisterPage />} /> {/* Halaman register */}
+    <Route path="/users" element={<UsersPage />} /> {/* Halaman pengguna */}
+    <Route path="*" element={<Navigate to="/" replace />} /> {/* Fallback jika tidak ditemukan */}
+  </Routes>
+);
 
 export default App;
