@@ -21,7 +21,14 @@ const LandingPage = () => {
         <li>Clear.</li>
         <li>Complete.</li>
       </ul>
-      <button onClick={() => navigate("/login")}>Sign In</button>
+      
+      <h3>
+        Explore and feel other’s journey with us
+      </h3>
+      <h1>
+      Create your journey story with BVyu
+      </h1>
+      <button onClick={() => navigate("/login")}>Explore</button>
     </div>
   );
 };
