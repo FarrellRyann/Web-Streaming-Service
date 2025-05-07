@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Layout container */
+.login-page {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* Quote section */
+.login-quote {
+  flex: 1;
+  max-width: 500px;
+}
+
+.login-quote h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #fff500;
+}
+
+.quote {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.blue {
+  color: #00ffff;
+}
+
+/* Card section */
+.login-card {
+  flex: 1;
+  max-width: 400px;
+  background: #111;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-card h1 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  text-shadow: 0 0 5px #fff;
+}
+
+/* Input style */
+.login-card input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.login-card input::placeholder {
+  color: #aaa;
+}
+
+/* Button style */
+.login-card button {
+  width: 100%;
+  padding: 14px;
+  background: #00ffff;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-card button:hover {
+  background: #00cccc;
+}
+
+/* Register link */
+.login-card p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-card a {
+  color: #00ffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #ff4c4c;
+  margin-top: 10px;
+  font-size: 14px;
+}
