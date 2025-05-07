@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/users.css";
 
 const UsersPage = () => {
   const profiles = ["Red", "Blue", "Gray", "Yellow"];
@@ -10,7 +11,7 @@ const UsersPage = () => {
       <div>
         {profiles.map((profile, index) => (
           <button key={index}>{profile}</button>
-        ))}
+        ))} 
       </div>
       <button>Manage Profiles</button>
     </div>
