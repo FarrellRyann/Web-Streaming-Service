@@ -8,7 +8,9 @@ const LandingPage = () => {
 
   return (
     <div>
-      <img src="/images/bvyu-blue.png" alt="Bvyu Logo" className="logo-img" />
+
+      {/* Gantikan dengan gambar */}
+      <img src="/images/bvyu-blue.png" alt="Bvyu Logo" style={{ width: '200px' }} />
 
       <p className="landing-text">
         In the theater of the mind, every frame flickers with the potential to ignite empathy;
@@ -22,6 +24,7 @@ const LandingPage = () => {
         <li>Clear.</li>
         <li>Complete.</li>
       </ul>
+
 
       <img src="/images/icon-power.png" alt="Icon" className="glow-icon" />
 
@@ -37,9 +40,14 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <button className="neon-button" onClick={() => navigate("/login")}>
-        Sign In
-      </button>
+      <h3>
+        Explore and feel other’s journey with us
+      </h3>
+      <h1>
+      Create your journey story with BVyu
+      </h1>
+      <button onClick={() => navigate("/login")}>Explore</button>
+
     </div>
   );
 };
