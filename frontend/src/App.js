@@ -1,22 +1,19 @@
-// src/App.js
-import React from "react";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/Landingpage';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Users from './pages/Userspage';
 
-import { Routes, Route, Navigate } from "react-router-dom";
-import LandingPage from "./pages/Landingpage";
-import LoginPage from "./pages/Login";
-import RegisterPage from "./pages/Register";
-import UsersPage from "./pages/Userspage";
-
-const App = () => (
-  <div className="app-container">
+function App() {
+  return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/users" element={<UsersPage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/userspage" element={<Users />} />
     </Routes>
-  </div>
-);
+  );
+}
 
 export default App;
