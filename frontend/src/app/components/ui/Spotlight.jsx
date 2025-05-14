@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "../utils/cn";
+import { cn } from "../lib/cn";
 
 export const Spotlight = ({
   gradientFirst = "radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(210, 100%, 85%, .08) 0, hsla(210, 100%, 55%, .02) 50%, hsla(210, 100%, 45%, 0) 80%)",
@@ -25,7 +25,7 @@ export const Spotlight = ({
       transition={{
         duration: 1.5,
       }}
-      className="pointer-events-none absolute inset-0 h-full w-full">
+      className="pointer-events-none absolute inset-0 h-full w-full overflow-hidden">
       <motion.div
         animate={{
           x: [0, xOffset, 0],
