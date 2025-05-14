@@ -94,6 +94,30 @@ export default function LandingPage() {
                 </p>
               </div>
             </SpotlightCard>
+
+            <SpotlightCard className="custom-spotlight-card mt-10" spotlightColor="rgba(255, 234, 0, 0.12)">
+              <div className="flex flex-col items-start justify-start">
+                <Image src={Logo} alt="Logo" width={40} height={40} className="object-contain align-start" />
+                <h1 className="text-4xl font-bold">
+                  Watch at lightning speed.
+                </h1>
+                <p className="text-base text-neutral-300 max-w-2xl mx-auto">
+                No need to worry about lag, you watch at lightning speed!
+                </p>
+              </div>
+            </SpotlightCard>
+
+            <SpotlightCard className="custom-spotlight-card mt-10" spotlightColor="rgba(255, 234, 0, 0.12)">
+              <div className="flex flex-col items-start justify-start">
+                <Image src={Logo} alt="Logo" width={40} height={40} className="object-contain align-start" />
+                <h1 className="text-4xl font-bold">
+                  Watch at lightning speed.
+                </h1>
+                <p className="text-base text-neutral-300 max-w-2xl mx-auto">
+                No need to worry about lag, you watch at lightning speed!
+                </p>
+              </div>
+            </SpotlightCard>
           
         </div>
       </main>
