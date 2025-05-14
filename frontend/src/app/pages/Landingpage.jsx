@@ -19,25 +19,30 @@ export default function LandingPage() {
       icon: "🏠"
     },
     {
+      name: "Home",
+      link: "/home",
+      icon: "🎬"
+    },
+    {
+      name: "Users",
+      link: "/users",
+      icon: "👤"
+    },
+    {
       name: "About",
       link: "/about",
       icon: "ℹ️"
-    },
-    {
-      name: "Contact",
-      link: "/contact",
-      icon: "📧"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-black w-full h-full inset-0">
+    <div className="min-h-screen bg-black w-full h-full inset-0 overflow-hidden">
       <FloatingNav navItems={navItems} />
       <main className="container mx-auto px-4 py-20">
-        <div className="flex flex-col items-center justify-center min-h-[80vh] gap-8">
+        <div className="flex flex-col items-center justify-center min-h-[80vh] gap-8 overflow-hidden">
           <Spotlight />
           
-          <div className="text-center space-y-8 max-w-6xl mx-auto mt-30">
+          <div className="text-center space-y-8 max-w-6xl mx-auto mt-20">
             <p className="text-lg text-neutral-300">
               Introducing
             </p>
@@ -51,31 +56,37 @@ export default function LandingPage() {
             </p>
           </div>
 
+          <div className="flex flex-col items-center justify-center gap-4 mt-70">
             <TextGenerateEffect 
               words={quote1}
               className="text-left"
               filter={true}
               duration={0.5}
             />
+            </div>
 
+          <div className="flex flex-col items-center justify-center gap-4 mt-40">
             <TextGenerateEffect 
               words={quote2}
               className="text-right"
               filter={true}
               duration={0.5}
             />
+          </div>
 
-
+          <div className="flex flex-col items-center justify-center gap-4 mt-70">
             <ScrollVelocity
               texts={['BlockVyu', 'BVyu']}
               velocity={velocity}
               className="text-white"
             />
+          </div>
 
-            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(255, 234, 0, 0.12)">
-              <div className="flex flex-col items-center justify-center">
+          
+            <SpotlightCard className="custom-spotlight-card mt-70" spotlightColor="rgba(255, 234, 0, 0.12)">
+              <div className="flex flex-col items-start justify-start">
                 <Image src={Logo} alt="Logo" width={40} height={40} className="object-contain align-start" />
-                <h1 className="text-2xl font-bold">
+                <h1 className="text-4xl font-bold">
                   Watch at lightning speed.
                 </h1>
                 <p className="text-base text-neutral-300 max-w-2xl mx-auto">
@@ -83,6 +94,7 @@ export default function LandingPage() {
                 </p>
               </div>
             </SpotlightCard>
+          
         </div>
       </main>
     </div>
